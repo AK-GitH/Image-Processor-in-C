@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
 <body>
-    <h1>HSHEX Image Processing Tasks</h1>
+    <h1>HSHEX Image Processing in C</h1>
+    <hr>
     <section id="hshex-description">
         <h2>HSHEX Image Format Description</h2>
         <p>An HSHEX image consists entirely of ASCII text. It starts with a header:</p>
@@ -21,6 +18,7 @@ width height here:
         </ul>
         <p>The image data follows the header. Each pixel is stored as three unsigned 16-bit values as hexadecimal numbers.</p>
     </section>
+    <hr>
     <section id="mono-task">
         <h2>Task MONO: Convert Image to Monochrome (Greyscale)</h2>
         <p>The apply_MONO function converts an image from color to monochrome (greyscale) using the following formula:</p>
@@ -28,6 +26,7 @@ width height here:
         <p>This formula computes a weighted sum of the red, green, and blue components of each pixel to produce greyscale output.</p>
         <!-- Add more explanation or instructions if needed -->
     </section>
+    <hr>
     <section id="hist-task">
         <h2>Task HIST: Compute Histogram of Image</h2>
         <p>The apply_HIST function computes a histogram of the red, green, and blue values used in the image. It counts how many times each value occurs and displays the results.</p>
@@ -40,16 +39,12 @@ Value 2: 8729 pixels
 Value 255: 17 pixels
         </pre>
     </section>
+    <hr>
+    <h1>Steps to Run Image Processing:</h1>
+    <ol>
+        <li>Run <code>gcc -o process process.c</code> or run <code>make</code>.</li>
+        <li>Run <code>./process input_file.hshex output_file.hshex</code>. <br>(input and output files are the image names to be replaced with. For example, if using the bars image, it will be <code>./process bars.hshex outputbars.hshex</code>).</li>
+        <li>Run <code>./hsconvert -f PPM output_file.hshex output_file.ppm</code>. <br>(For example, if you have <code>outputbars.hshex</code>, it will be <code>./hsconvert -f PPM outputbars.hshex outputbars.ppm</code>).</li>
+    </ol>
 </body>
 </html>
-
-
-Steps to run:
----------------------------------------------->
-1) run "gcc -o process process.c" or run "make"
-
-2) ./process input_file.hshex output_file.hshex
-(input and output file are the image names to be replaced with. eg: if using bars image, it will be "./process bars.hshex outputbars.hshex")
-
-3) ./hsconvert -f PPM output_file.hshex output_file.ppm
-(eg: if you have outputbars.hshex, it will be "./hsconvert -f PPM outputbars.hshex outputbars.ppm")
